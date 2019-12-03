@@ -1,5 +1,5 @@
 from app import app, db, redis_store, utils
-from app.models import Bank, Branch, BankAccount, Tin, CountryofResidence, CountryinAddress, PostalCode, Account, Form
+from app.models import Bank, Branch, BankAccount
 
 import requests
 import datetime
