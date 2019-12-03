@@ -1,4 +1,4 @@
-# SnD Backend
+# CS165 Project
 
 ## To run
 
@@ -11,12 +11,12 @@ docker-compose up
 ## To setup database
 
 ```
-docker exec snd_web_1 flask db init
+docker exec cs165_web_1 flask db init
 ```
 
 ## Migrate database
 
 ```
-docker exec snd_web_1 flask db migrate -m "migration message"
-docker exec snd_web_1 flask db upgrade
+docker exec cs165_web_1 flask db migrate -m "migration message"
+docker exec cs165_web_1 flask db upgrade
 ```
