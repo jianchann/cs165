@@ -7,8 +7,17 @@ from flask import Flask, jsonify, g, render_template, redirect, request
 
 @app.route('/bank', methods=['GET'])
 def get_banks():
+    # SELECT:
+    # SELECT * FROM Bank;
     banks = Bank.query.all()
     if len(banks) == 0:
+        # POPULATE:
+        # INSERT INTO Bank VALUES
+        # ("Metrobank","Metrobank Plaza, Sen. Gil J. Puyat Avenue, Makati City"),
+        # ("Unionbank of the Philippines","UnionBank Plaza Bldg., Meralco Avenue, Pasig City"),
+        # ("Land Bank of the Philippines","LANDBANK Plaza, 1598 M.H. del Pilar, Manila City"),
+        # ("Banco de Oro","7899 Makati Avenue, Makati City"),
+        # ("Bank of the Philippine Islands", "6768 Ayala Avenue, Makati City"); 
         bankNames = ["Metrobank","Unionbank of the Philippines","Land Bank of the Philippines","Banco de Oro","Bank of the Philippine Islands"]
         bankAddresses = ["Metrobank Plaza, Sen. Gil J. Puyat Avenue, Makati City","UnionBank Plaza Bldg., Meralco Avenue, Pasig City","LANDBANK Plaza, 1598 M.H. del Pilar, Manila City","7899 Makati Avenue, Makati City","6768 Ayala Avenue, Makati City"]
         for i in range(0,len(bankNames)):
@@ -38,7 +47,7 @@ def get_banks():
             })
         return jsonify(return_data)
 
-
+# INSERT BUT NOT USED IN APP
 @app.route('/bank/create', methods=['POST'])
 def create_bank():
     post_data = request.get_json()

@@ -7,8 +7,17 @@ from flask import Flask, jsonify, g, render_template, redirect, request
 
 @app.route('/branch', methods=['GET'])
 def get_branches():
+    # SELECT:
+    # SELECT * FROM Branch;
     branches = Branch.query.all()
     if len(branches) == 0:
+        # POPULATE
+        # INSERT INTO branch VALUES
+        # ("BPI UP Town Center", "Unit C145A L1 Phase 2, UP Town Center, Katipunan Avenue, Quezon City", "Bank of the Philippine Islands"),
+        # ("BPI Loyola-Katipunan", "299 Katipunan Avenue, Quezon City", "Bank of the Philippine Islands"),
+        # ("BDO Katipunan", "Regis Center, 327 Katipunan Avenue, Quezon City", "Banco de Oro"),
+        # ("Metrobank Katipunan", "339 Katipunan Avenue, Quezon City", "Metrobank"),
+        # ("Metrobank Blue Ridge", "222 Katipunan Avenue, Quezon City", "Metrobank");
         branchNames = [
             "BPI UP Town Center",
             "BPI Loyola-Katipunan",
@@ -54,7 +63,7 @@ def get_branches():
             })
         return jsonify(return_data)
 
-
+# INSERT BUT NOT USED IN APP
 @app.route('/branch/create', methods=['POST'])
 def create_branch():
     post_data = request.get_json()
