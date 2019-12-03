@@ -1,0 +1,14 @@
+Flask==1.0.2
+flask-sqlalchemy
+Flask-Migrate
+pymysql
+SQLAlchemy-Utils
+requests
+facebook-sdk
+PyJWT
+pylint
+flask-redis
+psycopg2
+gunicorn
+psycopg2-binary
+python-dotenv
